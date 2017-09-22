@@ -10,14 +10,14 @@ const isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 const loadFunc = iOSLoad;
 
 function insertDialog(index) {
-	const data = rainDrops[index];
+	const data = rainDrops[index]; //点击水滴的信息
 	const domString = _.template(data.last? emptyTemplateStr : templateStr)({
 		index: index,
 		audio: '',
-		position: data.position,
-		content: data.content,
-		user: data.user,
-		time: data.time
+		position: data.position, //地点
+		content: data.content, //文字内容
+		user: data.user, //用户名
+		time: data.time //时间
 	});
 	$(document.body).append(domString);
 }

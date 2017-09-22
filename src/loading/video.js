@@ -48,7 +48,7 @@ function showVideo(src) {
         $(window).trigger('ball_show');
     };
     video.onerror = function(e){
-        alert(JSON.stringify(e));
+        console.error(JSON.stringify(arguments));
     }
     video.src = src;
     video.load();
