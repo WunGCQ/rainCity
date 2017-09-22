@@ -1,22 +1,22 @@
 import { C3D } from '../../../lib/css3d-engine';
 import { R, DROP_SIZE, DROP_HEIGHT, DROP_NUMBER, ALL_WIDTH, GROUP_WIDTH, ANCHORS } from './config';
-import {dropTypes} from './config';
-import {showDialog} from '../../dialog';
+import {dropTypes,rainDrops} from './config';
+import {showDialog,showShare} from '../../dialog';
 import {skyRect} from '../skybox/config';
 		
 export function addDrops(skyBox) {
 	const sprite = new C3D.Sprite();
 	const l = ANCHORS.length;
-	//创建20个平面放入容器，并定义鼠标事件
 	for (let i = 0; i < DROP_NUMBER; i++) {
-		let imageURL = 'drops/' + dropTypes[i] + '.png';
-		const offsetX = Math.floor(i / l) * GROUP_WIDTH + ANCHORS[i % l][0];
+        const plane = new C3D.Plane();
+
+        const offsetX = Math.floor(i / l) * GROUP_WIDTH + ANCHORS[i % l][0];
 		const alpha = (offsetX / ALL_WIDTH);
 		const theta = (offsetX / ALL_WIDTH) * 2 * Math.PI;
-		const plane = new C3D.Plane();
 		const dy = ANCHORS[i % l][1];
 		const scale = ANCHORS[i % l][2];
-		const x = Math.sin(theta) * R,y = dy - R * 0.15,z = -Math.cos(theta) * R;
+		const x = Math.sin(theta) * R,y = (dy - R * 0.15) * 2 + 0.5*R,z = -Math.cos(theta) * R;
+
 		plane.size(DROP_SIZE * scale, DROP_HEIGHT * scale)
 		.position(x, y, z)
 		.rotation(0, -alpha * 360, 0)
@@ -47,8 +47,12 @@ export function addDrops(skyBox) {
 }
 
 export function onDropTouchEnd(i,pano) {
-	return function () {
+	return function (ev) {
 		this.le.el.classList.add('visited');
-		showDialog(i, pano);
+		// if(rainDrops[i].last) {
+		// 	showShare(ev);
+		// } else {
+            showDialog(i, pano);
+		// }
 	};
 }

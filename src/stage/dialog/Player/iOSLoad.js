@@ -1,6 +1,6 @@
 import { getState } from '../../../state';
 import { Visualizer } from '../Visualizer';
-
+const isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 const touchingCls = 'm-btn-touching';
 
 let source,audioBuffer;
@@ -38,8 +38,11 @@ function firstPlay(buffer) {
 }
 
 function afterLoad(buffer, $btn) {
-	firstPlay(buffer);
-	$btn.toggleClass('m-pause-btn');
+	auto(function(){
+        firstPlay(buffer);
+        $btn.toggleClass('m-pause-btn');
+	});
+
 	const ontouchstart = ($btn, btn) => (ev) => {
 
 		ev.preventDefault();
@@ -86,4 +89,19 @@ export function clearContext() {
 	//	getState().audioCtx = null;
 	//	audioBuffer = null;
 	//});
+}
+
+function auto(func){
+    if (window.WeixinJSBridge) {
+        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+            func();
+        }, false);
+        document.addEventListener('WeixinJSBridgeReady', function () {
+            WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                func();
+            });
+        }, false);
+    } else {
+        func();
+    }
 }

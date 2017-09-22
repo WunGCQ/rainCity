@@ -1,4 +1,5 @@
 /node_modules
 /dist
 /.idea
+/public/dist
 **/.DS_Store

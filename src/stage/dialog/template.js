@@ -27,3 +27,14 @@ export const templateStr = `<div class="g-dialog-mask" id="dialog_<%=index%>">
         <div class="m-share-tip"></div>
     </div>
 `;
+
+export const emptyTemplateStr =   `<div class="g-dialog-mask" id="dialog_<%=index%>">
+        <div class="g-dialog show">
+            <div class="m-qr-block show">
+                <img src="${process.env.CDN_PREFIX}/images/dialog/qr_img.jpg" alt="新世相" class="m-qr-image"/>
+            </div>
+            <div class="m-close-btn"></div>
+        </div>
+        <div class="m-share-tip"></div>
+    </div>
+`;

@@ -31,7 +31,7 @@ function loadXHR(url) {
 }
 
 export async function imageBlob(url, cb) {
-	if(url.indexOf('blob') === 0) {
+	if (url.indexOf('blob') === 0) {
 		cb(url);
 	}
 	const { ok, blob } = await loadXHR(imageURL(url));
@@ -42,12 +42,11 @@ export async function imageBlob(url, cb) {
 }
 
 export function imageURL(url) {
-    if(url.indexOf('blob') === 0) {
-       return url;
-    }
+	if (url.indexOf('blob') === 0) {
+		return url;
+	}
 	const newURL = (url.indexOf(process.env.CDN_PREFIX) === 0 ? url : process.env.CDN_PREFIX + url);
-
-    return loadedUrl[newURL] || loadedUrl[url] || newURL;
+	return loadedUrl[newURL] || loadedUrl[url] || newURL;
 }
 
 export function requestImage(url, cb) {
@@ -55,10 +54,10 @@ export function requestImage(url, cb) {
 	img.onload = function () {
 		cb && cb(img);
 	};
-	img.onerror = function(){
+	img.onerror = function () {
 		cb && cb(img);
 	};
 
-	img.src = imageURL(url);;
+	img.src = imageURL(url);
 }
 
