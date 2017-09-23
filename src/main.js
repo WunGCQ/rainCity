@@ -4,9 +4,8 @@ import { initLoading } from './loading';
 import { initRain } from './rain';
 import { getState } from './state';
 import './style/main.less';
-
 if (process.env.NODE_ENV != 'development') {
-	window.location.hash = '';
+	window.location.hash = '#';
 }
 const pathname = window.location.pathname;
 
@@ -89,3 +88,5 @@ window.onhashchange = function () {
 		initStage();
 	}
 };
+alert(window.location.hash);
+alert(window.location.pathname);
