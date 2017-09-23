@@ -1,3 +1,4 @@
+import {loadAudio} from '../bgm';
 const urls = [];
 const w = window.innerWidth, h = window.innerHeight;
 const videoWidth = 320,videoHeight = 504;
@@ -64,7 +65,9 @@ export function parseImages(zip) {
 				loaded++;
 				if (loaded >= len) {
 					draw();
+
 				}
+
 			}))(index);
 		}
 	}

@@ -91,11 +91,12 @@ export function playBGM() {
 		}
 	} else if (cur == 1) {
 		$('#bgm').remove();
-		const url = process.env.CDN_PREFIX + '/media/bgm.mp3';
-		loadAudio(url);
+		$('#bgm').remove();
+		//const url = process.env.CDN_PREFIX + '/media/bgm.mp3';
+		//loadAudio(url);
 	} else if (cur == 2) {
 		if (!document.getElementById('bgm')) {
-			const url = process.env.CDN_PREFIX + '/media/bgm.mp3';
+			const url = process.env.CDN_PREFIX + '/media/bgm_rain.mp3';
 			loadAudio(url);
 		}
 	}

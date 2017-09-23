@@ -1,5 +1,7 @@
 import JSZip from 'jszip';
-import {parseImages} from './zipVideo';
+import { parseImages } from './zipVideo';
+import { loadAudio } from '../bgm';
+
 function hideBg() {
 	$('#loading_wrap').remove();
 	$('#loading_mask').remove();
@@ -75,17 +77,17 @@ export const loadVideoFunc = loading => src => {
 	//	}
 	//};
 	//req.send();
-	loadZip(loading,src);
+	loadZip(loading, src);
 };
 
-function loadZip(loading,src) {
+function loadZip(loading, src) {
 	const req = new XMLHttpRequest();
 	req.open('GET', src, true);
 	req.responseType = 'blob';
 	req.onprogress = function (progressEvent) {
-			const progress = 0.5 + 0.5 * (progressEvent.loaded / progressEvent.total);
-			loading(progress * 100);
-		};
+		const progress = 0.5 + 0.5 * (progressEvent.loaded / progressEvent.total);
+		loading(progress * 100);
+	};
 	req.onload = function () {
 		loading(100);
 		if (this.status >= 200 && this.status < 400) {
@@ -95,12 +97,14 @@ function loadZip(loading,src) {
 			.then(function (zip) {
 				parseImages(zip);
 			});
+			const url = process.env.CDN_PREFIX + '/media/bgm_rain.mp3';
+			loadAudio(url);
 		}
 	};
 	req.send();
 }
 
-function addCanvas(){
+function addCanvas() {
 	const c = document.createElement('canvas');
 	c.setAttribute('width', 320);
 	c.setAttribute('height', 504);
