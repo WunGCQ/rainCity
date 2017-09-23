@@ -41,6 +41,7 @@ function afterLoad(buffer, $btn) {
 	auto(function(){
         firstPlay(buffer);
         $btn.toggleClass('m-pause-btn');
+        $btn.removeClass('loading');
 	});
 
 	const ontouchstart = ($btn, btn) => (ev) => {

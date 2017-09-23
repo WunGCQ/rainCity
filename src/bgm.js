@@ -35,7 +35,7 @@ function autoPlayAudio(src) {
 		document.body.removeEventListener('touchstart', touchFunc);
 	};
 	audio.addEventListener('canplay', playAudioFunc);
-	document.body.addEventListener('touchstart', touchFunc);
+	//document.body.addEventListener('touchstart', touchFunc);
 	audio.onended = function () {
 		audio.classList.add('playing');
 		$(window).trigger('ball_show');

@@ -93,13 +93,13 @@ export const showDialog = (function () {
 			//console.log(content.lastY);
 		});
 		content.on('touchmove', function (ev) {
-			ev.stopPropagation();
+			//ev.stopPropagation();
 			const deltaY = ev.touches[0].pageY - content.lastY;
 			content.lastY += deltaY;
 			content_el.scrollTop -= deltaY;
 		});
 		content.on('touchend', function (ev) {
-			ev.stopPropagation();
+			//ev.stopPropagation();
 		});
 		el.addClass('show');
 

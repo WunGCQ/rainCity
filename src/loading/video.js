@@ -48,7 +48,7 @@ function showVideo(src) {
 	};
 	video.addEventListener('canplay', playVideo);
 	video.addEventListener('touchstart', playVideo);
-	document.body.addEventListener('touchstart', touchFunc);
+	//document.body.addEventListener('touchstart', touchFunc);
 	video.onended = function () {
 		video.classList.add('playing');
 		$(window).trigger('ball_show');

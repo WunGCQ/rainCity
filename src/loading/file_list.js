@@ -16,4 +16,6 @@ export 	const images = _.range(0, 20).map(x => `/images/stage/skybox/${x}.jpg`)
 	'/images/dialog/qr1.png',
 	'/images/dialog/qr_img.jpg',
 	'/images/dialog/share_tip.png',
+	'/images/dialog/loading_bg.png',
+	'/images/dialog/loading_ring.png'
 ]);

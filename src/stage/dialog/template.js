@@ -6,7 +6,7 @@ export const templateStr = `<div class="g-dialog-mask" id="dialog_<%=index%>">
             <div>
             <div class="m-dialog-head">
                 <canvas class="m-wave-bg" id="canvas" height="270" width="600"></canvas>
-                <div class="m-play-btn"></div>
+                <div class="m-play-btn loading"></div>
             </div>
             <div class="m-dialog-content">
                 <div class="m-dialog-title break">
