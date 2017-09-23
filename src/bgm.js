@@ -72,7 +72,6 @@ export const loadAudio = src => {
 
 			} else {
 				autoPlayAudio(url);
-
 			}
 		}
 	};

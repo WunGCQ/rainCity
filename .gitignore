@@ -3,5 +3,6 @@
 /.idea
 /public/dist
 /public/index.html
+/public/video.zip
 /env
 **/.DS_Store
