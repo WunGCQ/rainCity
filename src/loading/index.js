@@ -47,7 +47,7 @@ export function initLoading() {
 		setTimeout(function(){
 			$('#root .wrap-box').append(svg);
 		},300);
-		//playBGM();
+		playBGM();
 	});
 
 
