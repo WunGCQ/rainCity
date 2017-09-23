@@ -9,6 +9,9 @@ export function init() {
 	$('#root').html(bodyStr);
 	generateStyle();
 	getState().haveOpening = false;
+	$('#stage_back_btn').on('touchend',function(){
+		$(window).trigger('rain_show');
+	});
 	//loadCss('/css/stage.css',function(){
 	//	loadCss('/css/dialog.css',function(){
 	//		//loading();

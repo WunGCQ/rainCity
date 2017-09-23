@@ -1,5 +1,5 @@
 export const bodyStr =
 	`<div id="main"></div>
-	<a href="#0" class="back-btn"></a>
+	<div class="back-btn" id="stage_back_btn"></div>
 	<div id="loading-text"></div>
 `;

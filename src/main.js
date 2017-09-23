@@ -25,10 +25,12 @@ $(window).on('loading_show', function () {
 });
 $(window).on('index_show', function () {
 	getState().current = 0;
+	window.location.hash = '#0';
 	initRain();
 });
 $(window).on('rain_show', function () {
 	getState().current = 0;
+	window.location.hash = '#0';
 	initRain();
 });
 
