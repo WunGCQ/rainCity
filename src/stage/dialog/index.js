@@ -89,7 +89,7 @@ export const showDialog = (function () {
 		content.on('touchstart', function (ev) {
 			ev.preventDefault();
 			content.lastY = ev.touches[0].pageY;
-			console.log(content.lastY);
+			//console.log(content.lastY);
 		});
 		content.on('touchmove', function (ev) {
 			ev.stopPropagation();

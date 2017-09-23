@@ -35,7 +35,7 @@ export async function imageBlob(url, cb) {
 		cb(url);
 	}
 	const { ok, blob } = await loadXHR(imageURL(url));
-	console.log(url, blob);
+	//console.log(url, blob);
 	if (ok) {
 		cb(blob);
 	}
