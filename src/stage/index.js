@@ -3,11 +3,12 @@ import { generateStyle } from './generateStyle';
 import { initScene } from './scene';
 import { bodyStr } from './body';
 import { loadCss } from '../utils/loadCss';
-
+import {getState} from '../state';
 export function init() {
 	document.body.className = 'stage-body';
 	$('#root').html(bodyStr);
 	generateStyle();
+	getState().haveOpening = false;
 	//loadCss('/css/stage.css',function(){
 	//	loadCss('/css/dialog.css',function(){
 	//		//loading();

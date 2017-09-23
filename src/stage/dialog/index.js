@@ -8,7 +8,7 @@ const state = getState();
 const isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 //const loadFunc = isiOS ? iOSLoad : load;
 const loadFunc = iOSLoad;
-
+const root = $('#root');
 function insertDialog(index) {
 	const data = rainDrops[index]; //点击水滴的信息
 	const domString = _.template(data.last? emptyTemplateStr : templateStr)({
@@ -19,7 +19,7 @@ function insertDialog(index) {
 		user: data.user, //用户名
 		time: data.time //时间
 	});
-	$(document.body).append(domString);
+	root.append(domString);
 }
 
 export function showShare(ev) {
@@ -27,7 +27,7 @@ export function showShare(ev) {
 	const div = document.createElement('div');
 
 	div.className = 'g-share-tip';
-	document.body.appendChild(div);
+	root.get(0).appendChild(div);
 
 	div.addEventListener('touchstart', function (ev) {
 		ev.preventDefault();
@@ -43,10 +43,9 @@ function hideShare() {
 }
 
 export const showDialog = (function () {
-	let haveOpening = false;
 
 	return function (i, me) {
-		if (haveOpening) {
+		if (getState().haveOpening) {
 			return;
 		}
 		insertDialog(i);
@@ -63,7 +62,7 @@ export const showDialog = (function () {
             } else {
                 clearContext();
                 me && (me.lockMove = false);
-                haveOpening = false;
+	            getState().haveOpening= false;
                 el.removeClass('show');
                 el.remove();
             }
@@ -82,7 +81,7 @@ export const showDialog = (function () {
 
 		qrBtn.on('touchstart',showQR );
 
-		if (haveOpening) {
+		if (getState().haveOpening) {
 			return;
 		}
 		//el.on('touchstart',function(ev){
@@ -105,7 +104,7 @@ export const showDialog = (function () {
 		me && (me.lockMove = true);
 		const musicURL = `${process.env.CDN_PREFIX}/media/${rainDrops[i].file}.mp3`;
 		loadFunc(btn, musicURL);
-		haveOpening = true;
+		getState().haveOpening = true;
 	};
 })();
 

@@ -1,11 +1,26 @@
 const urls = [];
-
+const w = window.innerWidth, h = window.innerHeight;
+const videoWidth = 320,videoHeight = 504;
+const rate = videoWidth/videoHeight,clientRate = w/h;
+let left = 0, top = 0;
+var shallRenderWidth = videoWidth,shallRenderHeight = videoHeight;
+shallRenderWidth = rate * h * (videoWidth/w);
+if(shallRenderWidth < videoWidth) {
+	shallRenderWidth = videoWidth;
+	shallRenderHeight = (w / rate) * (videoHeight/h);
+	top = (videoHeight - shallRenderHeight)/2;
+} else {
+	shallRenderHeight = videoHeight;
+	shallRenderWidth = (h * rate) * (videoWidth/w);
+	left = (videoWidth - shallRenderWidth)/2;
+}
 function draw() {
+	console.log(top,left,shallRenderWidth,shallRenderHeight);
+
 	//remove broken frame
 	const frames = urls.filter(x => x);
 	const c = $('#root .video').get(0);
 	c.className += ' playing';
-	const w = window.innerWidth, h = window.innerHeight;
 	const ctx = c.getContext('2d');
 	const len = frames.length;
 	let i = 0;
@@ -15,7 +30,7 @@ function draw() {
 		if(frames[i]) {
 			const image = new Image();
 			image.onload = function () {
-				ctx.drawImage(image, 0, 0, 320, 504);
+				ctx.drawImage(image, left, top, shallRenderWidth, shallRenderHeight);
 			};
 			image.onerror = function(){
 				debugger;

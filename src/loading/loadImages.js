@@ -2,7 +2,6 @@ import {imageBlob} from '../utils/loadImageBlob';
 import {rainDrops} from '../stage/scene/drops/config';
 import {images} from './file_list';
 export const loadImagesFunc = (loading, loadVideo) => () => {
-
 	const len = images.length;
 	let loaded = 0;
 	const cb = function () {
@@ -16,6 +15,6 @@ export const loadImagesFunc = (loading, loadVideo) => () => {
 		const s = setTimeout(function () {
 			imageBlob(url, cb);
 			clearTimeout(s);
-		}, i * 100);
+		}, i * 30);
 	});
 };

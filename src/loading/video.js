@@ -87,6 +87,7 @@ function loadZip(loading,src) {
 			loading(progress * 100);
 		};
 	req.onload = function () {
+		loading(100);
 		if (this.status >= 200 && this.status < 400) {
 			addCanvas();
 			const new_zip = new JSZip();

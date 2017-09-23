@@ -72,6 +72,9 @@ body {
     bottom: 0;
     z-index: 10020;
     text-align: center;
+    &.qr1 {
+      .bg('/images/dialog/qr1.png');
+    }
   }
   .g-dialog .m-close-btn {
     box-sizing: border-box;
@@ -176,6 +179,9 @@ body {
     display: block;
     opacity: 0;
     animation: showQR 0.3s ease-out forwards;
+    &+div{
+      visibility: hidden;
+    }
   }
 
   .m-user {
