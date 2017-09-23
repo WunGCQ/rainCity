@@ -21,7 +21,8 @@ function insertDialog(index) {
 		user: data.user, //用户名
 		time: data.time //时间
 	});
-	root.append(domString);
+	//root.append(domString);
+	$(domString).insertBefore('#stage_back_btn');
 }
 
 export function showShare(ev) {
