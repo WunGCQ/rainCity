@@ -27,6 +27,7 @@ function preloadLoadingPageImages(next) {
 				//document.body.className += ' show';
 				//document.body.style.opacity = '1';
 				next && next();
+				alert('loaded');
 			//}, 1000);
 		}
 	};
