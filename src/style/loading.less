@@ -210,6 +210,22 @@ body.loading-body {
   video.playing {
     opacity: 1;
   }
+  .video {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: #000;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease;
+    &.playing {
+      opacity: 1;
+    }
+  }
 }
 
 body.show {

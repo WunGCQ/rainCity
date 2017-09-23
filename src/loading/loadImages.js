@@ -9,7 +9,7 @@ export const loadImagesFunc = (loading, loadVideo) => () => {
 		loaded++;
 		loading(50 * loaded / len);
 		if (loaded >= len) {
-			loadVideo(`${process.env.CDN_PREFIX}/media/v.mp4`);
+			loadVideo(`${process.env.CDN_PREFIX}/video.zip`);
 		}
 	};
 	images.forEach(function (url, i) {

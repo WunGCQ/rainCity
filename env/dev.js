@@ -2,5 +2,5 @@
 module.exports = {
 	NODE_ENV: 'development',
 	BAIDU_MAP_URL: 'http://j.map.baidu.com/g50PL',
-	CDN_PREFIX: ''
+	CDN_PREFIX: 'http://wungcqrain.oss-cn-beijing.aliyuncs.com'
 };
