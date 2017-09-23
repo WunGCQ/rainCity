@@ -50,11 +50,11 @@ if (process.env.NODE_ENV == 'development') {
 		initRain();
 	}
 	const { hash } = window.location;
-	if (hash == '#1') {
-		initLoading();
-	} else {
-		initRain();
-	}
+	//if (hash == '#1') {
+	//	initLoading();
+	//} else {
+	//	initRain();
+	//}
 } else {
 	const { hash } = window.location;
 	if (hash == '#1') {

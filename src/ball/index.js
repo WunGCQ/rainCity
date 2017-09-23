@@ -1,7 +1,8 @@
 import { bodyStr } from './body';
 import { shine } from './shine';
 import { loadCss } from '../utils/loadCss';
-import {playBGM} from '../bgm';
+import { playBGM } from '../bgm';
+
 const BALL_SIZE = 370, HALF_SIZE = BALL_SIZE / 2;
 const INNER_SIZE = 280, HALF_INNER_SIZE = INNER_SIZE / 2;
 
@@ -65,7 +66,7 @@ function init() {
 
 	ball.on('touchend', function () {
 		touching = false;
-	})
+	});
 
 	rain.on('touchstart', function (ev) {
 		const data = ev.touches ? ev.touches[0] : ev;
@@ -95,7 +96,7 @@ function init() {
 		// const t_left = -left_p * HALF_INNER_SIZE - HALF_INNER_SIZE + 'px',
 		//       t_top  = top_p * HALF_INNER_SIZE - HALF_INNER_SIZE + 'px';
 		//ballsMaterial.css('transform', `translate(${t_left},${t_top})`);
-		const style = `translate(${(-HALF_SIZE + left_p * 80)}px,${(-HALF_SIZE + (db / 90) * 80 )}px)`;
+		const style = `translate(${(-HALF_SIZE + left_p * 80)}px,${(-HALF_SIZE + ((Math.sin(0.5 * db * Math.PI / 180))) * 80 )}px)`;
 		ball.css('transform', style);
 		//log(style);
 		//innerBall.css('box-shadow', '' + (left_p - 0.5) * 10 + 'px ' + (top_p - 0.5) * 10 + 'px 70px 30px rgba(249, 238, 102,1);');

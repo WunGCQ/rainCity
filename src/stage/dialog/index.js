@@ -57,18 +57,19 @@ export const showDialog = (function () {
 		const el       = $('#dialog_' + i),
 		      content  = $('.m-dialog-content-text', el),
 		      closeBtn = $('.m-close-btn', el);
-		let showQR = false;
+		let showQRFlag = false;
 		closeBtn.on('touchstart', function (ev) {
-			ev && ev.preventDefault();
-			if (showQR) {
-				showQR = false;
+			//ev && ev.preventDefault();
+			if (showQRFlag) {
+				showQRFlag = false;
 				$('.m-qr-block', el).removeClass('show');
 			} else {
-				clearContext();
+
 				me && (me.lockMove = false);
 				getState().haveOpening = false;
 				el.removeClass('show');
 				el.remove();
+				clearContext();
 			}
 		});
 		if (rainDrops[i].last) {
@@ -78,9 +79,9 @@ export const showDialog = (function () {
 		content.css('height', maxHeight + 'px').css('overflow', 'auto');
 		const btn = $('.m-play-btn', el).get(0), qrBtn = $('.m-share-qr-btn', el);
 		$('.m-share-tip-btn', el).on('touchstart', showShare);
-		showQR = function () {
+		const showQR = function () {
 			$('.m-qr-block', el).addClass('show');
-			showQR = true;
+			showQRFlag = true;
 		};
 
 		qrBtn.on('touchstart', showQR);
