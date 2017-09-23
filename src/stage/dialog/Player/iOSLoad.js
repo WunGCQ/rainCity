@@ -7,14 +7,14 @@ let source,audioBuffer;
 
 export function iOSLoad(btn, src) {
 	const $btn = $(btn);
-	$btn.css('display', 'none');
+	//$btn.css('display', 'none');
 	getState().audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 	const xhr = new XMLHttpRequest();
 	xhr.open('GET', src, true);
 	xhr.responseType = 'arraybuffer';
 	xhr.onload = function () {
 		const responseBuffer = xhr.response;
-		$btn.css('display', 'block');
+		//$btn.css('display', 'block');
 		getState().audioCtx.decodeAudioData(responseBuffer, function (buffer) {
 			afterLoad(buffer, $btn);
 		});
