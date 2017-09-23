@@ -2,5 +2,6 @@
 /dist
 /.idea
 /public/dist
+/public/index.html
 /env
 **/.DS_Store
