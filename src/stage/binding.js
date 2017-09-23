@@ -1,5 +1,5 @@
 document.body.addEventListener('touchstart', function (ev) {
-	if(ev.target.className !== 'm-qr-image'){
+	if(ev.target.className !== 'm-qr-image' || !window.allowWXTouchingScroll){
 		ev && ev.preventDefault();
 	}
 

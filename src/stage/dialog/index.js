@@ -72,6 +72,14 @@ export const showDialog = (function () {
 				clearContext();
 			}
 		});
+		$('.m-qr-image').on('touchstart',function(ev){
+			ev.stopPropagation();
+			//window.allowWXTouchingScroll = true;
+		});
+		$('.m-qr-image').on('touchend',function(ev){
+			ev.stopPropagation();
+			window.allowWXTouchingScroll = false;
+		});
 		if (rainDrops[i].last) {
 			return;
 		}
