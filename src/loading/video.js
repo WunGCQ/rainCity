@@ -97,8 +97,7 @@ function loadZip(loading, src) {
 			.then(function (zip) {
 				parseImages(zip);
 			});
-			const url = process.env.CDN_PREFIX + '/media/bgm_rain.mp3';
-			loadAudio(url);
+
 		}
 	};
 	req.send();

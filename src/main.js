@@ -10,11 +10,11 @@ if (process.env.NODE_ENV != 'development') {
 const pathname = window.location.pathname;
 
 $(window).on('stage_show', function () {
-	getState().current = 3;
+	getState().current = 4;
 	initStage();
 });
 $(window).on('ball_show', function () {
-	getState().current = 2;
+	getState().current = 3;
 	initBall();
 });
 $(window).on('loading_show', function () {
@@ -75,16 +75,16 @@ window.onhashchange = function () {
 	const [foo, hash = '0'] = window.location.hash.split('#');
 	const current = getState().current;
 	if (hash == current) return;
-	if (current != 3) return;
+	if (current != 4) return;
 	if (hash == 0) {
 		//alert('change 0');
 		initRain();
 	} else if (hash == 1) {
 		//alert('change 1');
 		initLoading();
-	} else if (hash == 2) {
-		initBall();
 	} else if (hash == 3) {
+		initBall();
+	} else if (hash == 4) {
 		initStage();
 	}
 };

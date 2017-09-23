@@ -68,7 +68,12 @@ export const loadAudio = src => {
 		if (this.status >= 200 && this.status < 400) {
 			const videoBlob = this.response;
 			const url = (URL || webkitURL).createObjectURL(videoBlob); // IE10+
-			autoPlayAudio(url);
+			if (getState().current == 1 || getState().current == 3) {
+
+			} else {
+				autoPlayAudio(url);
+
+			}
 		}
 	};
 	req.send();

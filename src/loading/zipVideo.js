@@ -1,4 +1,5 @@
 import {loadAudio} from '../bgm';
+import {getState} from '../state';
 const urls = [];
 const w = window.innerWidth, h = window.innerHeight;
 const videoWidth = 320,videoHeight = 504;
@@ -48,6 +49,11 @@ function draw() {
 const genUrl = (URL || webkitURL).createObjectURL;
 
 export function parseImages(zip) {
+
+	getState().current = 2;
+	const url = process.env.CDN_PREFIX + '/media/bgm_rain.mp3';
+	loadAudio(url);
+
 	let loaded = 0;
 	const len = _.size(zip.files) - 1;
 	for (var name in zip.files) {
