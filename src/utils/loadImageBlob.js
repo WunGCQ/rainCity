@@ -13,8 +13,10 @@ function loadXHR(url) {
 				xhr.open('GET', media(url), true);
 				xhr.responseType = 'blob';
 				xhr.onerror = function (e) {
-					alert(e);
-					reject({ ok: false });
+					//alert(url);
+					//alert(e);
+					resolve({ ok: true, blob: url });
+					//reject({ ok: false });
 				};
 				xhr.onload = function () {
 					if (xhr.status < 400 && xhr.status >= 200) {

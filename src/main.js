@@ -20,7 +20,7 @@ $(window).on('ball_show', function () {
 $(window).on('loading_show', function () {
 	window.location.hash = '#1';
 	getState().current = 1;
-	alert('inited');
+	//alert('inited');
 	initLoading();
 });
 $(window).on('index_show', function () {
@@ -88,5 +88,5 @@ window.onhashchange = function () {
 		initStage();
 	}
 };
-alert(window.location.hash);
-alert(window.location.pathname);
+//alert(window.location.hash);
+//alert(window.location.pathname);
