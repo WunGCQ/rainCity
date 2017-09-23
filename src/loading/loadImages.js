@@ -15,6 +15,6 @@ export const loadImagesFunc = (loading, loadVideo) => () => {
 		const s = setTimeout(function () {
 			imageBlob(url, cb);
 			clearTimeout(s);
-		}, i * 30);
+		}, i * 60);
 	});
 };

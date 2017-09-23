@@ -16,7 +16,8 @@ export function initRain() {
 	// playAudio();
 	requestImage('/images/loading/mask.png');
 	requestImage('/images/loading/bg.png');
-	playBGM();
+	setTimeout(playBGM,1000);
+	//playBGM();
 }
 
 function goLoading() {

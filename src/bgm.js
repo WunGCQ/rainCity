@@ -10,10 +10,9 @@ function autoPlayAudio(src) {
 	document.body.appendChild(audio);
 
 	const doPlay = function () {
-		if (!played) {
-			audio.play();
-			played = true;
-		}
+		audio.volume = 1;
+		audio.play();
+		played = true;
 	};
 	const playAudioFunc = function (ev) {
 		ev && ev.preventDefault();

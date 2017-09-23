@@ -21,6 +21,7 @@ $(window).on('ball_show', function () {
 $(window).on('loading_show', function () {
 	window.location.hash = '#1';
 	getState().current = 1;
+	//alert('inited');
 	initLoading();
 });
 $(window).on('index_show', function () {
@@ -49,6 +50,12 @@ if (process.env.NODE_ENV == 'development') {
 	if (window.location.pathname.indexOf('index') > -1) {
 		initRain();
 	}
+	const { hash } = window.location;
+	if (hash == '#1') {
+		initLoading();
+	} else {
+		initRain();
+	}
 } else {
 	const { hash } = window.location;
 	if (hash == '#1') {
@@ -57,12 +64,13 @@ if (process.env.NODE_ENV == 'development') {
 		initRain();
 	}
 }
-var old_href = window.location.href + '';
+var old_hash = window.location.hash + '';
 setInterval(function () {
-	if (window.location.href != old_href) {
-		old_href = window.location.href + '';
+	if (window.location.hash != old_hash) {
+		old_hash = window.location.hash + '';
+		window.onhashchange();
 	}
-}, 1000);
+}, 100);
 
 window.onhashchange = function () {
 	const [foo, hash = '0'] = window.location.hash.split('#');
@@ -70,8 +78,10 @@ window.onhashchange = function () {
 	if (hash == current) return;
 	if (current != 3) return;
 	if (hash == 0) {
+		//alert('change 0');
 		initRain();
 	} else if (hash == 1) {
+		//alert('change 1');
 		initLoading();
 	} else if (hash == 2) {
 		initBall();
