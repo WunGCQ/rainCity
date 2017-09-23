@@ -12,7 +12,10 @@ function loadXHR(url) {
 				const xhr = new XMLHttpRequest();
 				xhr.open('GET', media(url), true);
 				xhr.responseType = 'blob';
-				xhr.onerror = function () {reject({ ok: false });};
+				xhr.onerror = function (e) {
+					alert(e);
+					reject({ ok: false });
+				};
 				xhr.onload = function () {
 					if (xhr.status < 400 && xhr.status >= 200) {
 						const newURL = (URL || webkitURL).createObjectURL(xhr.response);
