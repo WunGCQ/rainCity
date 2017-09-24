@@ -5,7 +5,9 @@ import { initRain } from './rain';
 import { getState } from './state';
 import './style/main.less';
 if (process.env.NODE_ENV != 'development') {
+	if(window.location.hash != "#4"){
 	window.location.hash = '#';
+	}
 }
 const pathname = window.location.pathname;
 
