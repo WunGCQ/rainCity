@@ -35,7 +35,7 @@ function draw() {
 				ctx.drawImage(image, left, top, shallRenderWidth, shallRenderHeight);
 			};
 			image.onerror = function(){
-				debugger;
+				//debugger;
 			};
 			image.src = frames[i];
 		}

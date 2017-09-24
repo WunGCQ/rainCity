@@ -47,7 +47,7 @@ export function initLoading() {
 		loadImages();
 		setTimeout(function(){
 			$('body').addClass('hide-bg');
-			debugger;
+			//debugger;
 			$('#root .wrap-box').append(svg);
 		},300);
 		playBGM();
