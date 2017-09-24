@@ -43,7 +43,7 @@ function draw() {
 			$(window).trigger('ball_show');
 			clearInterval(s);
 		}
-	}, 16);
+	}, 1000/24);
 }
 
 const genUrl = (URL || webkitURL).createObjectURL;

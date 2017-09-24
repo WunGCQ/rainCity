@@ -29,8 +29,8 @@
 <body>
 
 <!--<canvas width="640" id="c1" height="1008"></canvas>-->
-<canvas width="320" id="c" height="504"></canvas>
-<video src="../media/v.mp4" id="v" width="320" height="504" preload autoplay></video>
+<canvas width="640" id="c" height="1008"></canvas>
+<video src="../media/v.mp4" id="v" width="640" height="1008" preload autoplay></video>
 
 <script src="../lib/zepto.min.js"></script>
 
@@ -65,7 +65,7 @@
 		var startIndex = content.indexOf('base64,');
 		imgFolder.file(frame + '.png', content.slice(startIndex + 7), { base64: true });
 		// Start over!
-		setTimeout(draw, 16*10, v, c, bc, w, h);
+		setTimeout(draw, (41.66)*10, v, c, bc, w, h);
 	}
 </script>
 </html>
