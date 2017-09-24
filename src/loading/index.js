@@ -40,6 +40,7 @@ export function initLoading() {
 	preloadLoadingPageImages(function(){
 		document.body.className = 'loading-body';
 		$('#root').html(bodyStr);
+		$('#root .mask').css('background-image',`url(${imageURL('/images/loading/mask.png')})`);
 		const loading = loadingFunc();
 		const loadVideo = loadVideoFunc(loading);
 		const loadImages = loadImagesFunc(loading, loadVideo);
