@@ -46,11 +46,11 @@ function hideShare() {
 }
 
 export const showDialog = (function () {
-
 	return function (i, me) {
 		if (getState().haveOpening) {
 			return;
 		}
+		console.log(`${window.location.href.split('#')[0]}#4${i}`);
 		insertDialog(i);
 		getState().haveOpening = true;
 		me && (me.lockMove = true);

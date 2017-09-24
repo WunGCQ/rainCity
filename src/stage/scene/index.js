@@ -5,6 +5,8 @@ import { bindEvents } from '../binding';
 import { BASE_Z } from './common';
 import { RAF } from '../../utils/RAF';
 import { Controller } from './Controller';
+import {getHash} from '../../hash';
+import {showDialog} from '../dialog';
 
 export function initScene() {
 	document.getElementById('loading-text').style.opacity = '0';
@@ -42,5 +44,9 @@ function initStage() {
 	});
 	setTimeout(function () {
 		controller.init(skyBox, drops);
+		const {current,query} = getHash();
+		if(current == 4 && query != -1) {
+			showDialog(Number(query),skyBox);
+		}
 	}, 0);
 }

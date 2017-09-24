@@ -4,6 +4,7 @@ const state = {
 	paused: true,
 	haveOpening:false,
 	current: 0,
+	imagesLoaded : false,
 };
 const wrap = {
 	inner: state

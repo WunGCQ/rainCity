@@ -3,14 +3,34 @@ import { generateStyle } from './generateStyle';
 import { initScene } from './scene';
 import { bodyStr } from './body';
 import { loadCss } from '../utils/loadCss';
-import {getState} from '../state';
+import { getState } from '../state';
+import { images } from './resources';
+import { imageBlob } from '../utils/loadImageBlob';
+
 export function init() {
+	if (getState().imagesLoaded) {
+		doInit();
+	} else {
+		const len = images.length;
+		let loaded = 0;
+		const imagesLoadedCb = function () {
+			loaded++;
+			if (loaded >= len) {
+				getState().imagesLoaded = true;
+				doInit();
+			}
+		};
+		images.forEach(url => imageBlob(url, imagesLoadedCb));
+	}
+}
+
+export function doInit() {
 	document.body.className = 'stage-body';
 	$('#root').html(bodyStr);
 	generateStyle();
 	getState().haveOpening = false;
 	stopAudio();
-	$('#stage_back_btn').on('touchend',function(){
+	$('#stage_back_btn').on('touchend', function () {
 		$(window).trigger('rain_show');
 	});
 	//loadCss('/css/stage.css',function(){
@@ -20,10 +40,12 @@ export function init() {
 	//	})
 	//});
 	initScene();
+
 }
-function stopAudio(){
+
+function stopAudio() {
 	const audio = document.getElementById('bgm');
-	$('audio').each(function(index,el){
+	$('audio').each(function (index, el) {
 		$(el).get(0).pause();
 		$(el).remove();
 	});
@@ -37,5 +59,5 @@ function stopAudio(){
 			$(audio).remove();
 			clearInterval(s);
 		}
-	},200);
+	}, 200);
 }
