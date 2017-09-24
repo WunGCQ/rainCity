@@ -6,11 +6,18 @@ import { getState } from './state';
 import { getHash } from './hash';
 import './style/main.less';
 
-if (process.env.NODE_ENV != 'development') {
-	if (getHash().current !== 4) {
-		window.location.hash = '#';
+(function(){
+	if (process.env.NODE_ENV != 'development') {
+		if (getHash().current !== 4) {
+			window.location.hash = '#';
+		} else {
+			const hash = window.location.hash + '';
+			history.pushState(null, document.title, '#0');
+			history.pushState(null, document.title, hash);
+		}
 	}
-}
+})();
+
 
 const pathname = window.location.pathname;
 
