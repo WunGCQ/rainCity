@@ -12,7 +12,7 @@ import './style/main.less';
 			window.location.hash = '#';
 		} else {
 			const hash = window.location.hash + '';
-			history.pushState(null, document.title, '#0');
+			history.replaceState(null, document.title, '#0');
 			history.pushState(null, document.title, hash);
 		}
 	}
@@ -94,13 +94,17 @@ window.onhashchange = function () {
 	if (current != 4) return;
 	if (hash == 0) {
 		//alert('change 0');
+		getState().current = 0;
 		initRain();
 	} else if (hash == 1) {
+		getState().current = 1;
 		//alert('change 1');
 		initLoading();
 	} else if (hash == 3) {
+		getState().current = 3;
 		initBall();
 	} else if (hash == 4) {
+		getState().current = 4;
 		initStage();
 	}
 };
