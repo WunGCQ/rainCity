@@ -59,8 +59,11 @@ if (process.env.NODE_ENV == 'development') {
 	const { hash } = window.location;
 	if (hash == '#1') {
 		initLoading();
-	} else {
-		initRain();
+	}else if( hash== "#4") {
+		getState().current =4;
+		initStage();
+	}
+	else {	initRain();
 	}
 }
 var old_hash = window.location.hash + '';
